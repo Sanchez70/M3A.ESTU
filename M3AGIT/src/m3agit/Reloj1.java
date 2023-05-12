@@ -6,22 +6,20 @@
 package m3agit;
 
 import java.time.LocalDate;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Joseline
  */
 public class Reloj1 extends javax.swing.JFrame {
-    Proceso1 r;
-    Progress p;
+
     /**
      * Creates new form Reloj1
      */
     public Reloj1() {
         initComponents();
-        r = new Proceso1(this.lbReloj);
-        p = new Progress(this.barra);
+        Proceso1 r = new Proceso1(this.lbReloj);
+        Progress p = new Progress(this.barra);
         p.start();
         try {
             this.setVisible(true);
@@ -38,8 +36,7 @@ public class Reloj1 extends javax.swing.JFrame {
         
         ///metodoss yield//
         Proceso2 hilo1 = new Proceso2(lab1);
-        Proceso3 hilo2 = new Proceso3(lab2);
-        
+        Proceso3 hilo2 = new Proceso3(lab2);        
         hilo1.start();
         hilo2.start();
         
@@ -54,7 +51,6 @@ public class Reloj1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
         barra = new javax.swing.JProgressBar();
         lbfecha = new javax.swing.JLabel();
         lbReloj = new javax.swing.JLabel();
@@ -62,77 +58,102 @@ public class Reloj1 extends javax.swing.JFrame {
         ed = new javax.swing.JLabel();
         lab1 = new javax.swing.JLabel();
         lab2 = new javax.swing.JLabel();
-
-        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        barra.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                barraMouseClicked(evt);
-            }
-        });
-        getContentPane().add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 210, -1));
 
         lbfecha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbfecha.setForeground(new java.awt.Color(0, 153, 0));
-        getContentPane().add(lbfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 140, 20));
 
         lbReloj.setFont(new java.awt.Font("Agency FB", 1, 50)); // NOI18N
         lbReloj.setForeground(new java.awt.Color(0, 153, 0));
         lbReloj.setText("jLabel1");
         lbReloj.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lbReloj.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbRelojMouseClicked(evt);
-            }
-        });
-        getContentPane().add(lbReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 200, 115));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reloj.JPG"))); // NOI18N
-        jLabel1.setText("aaa");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 450, 360));
 
-        ed.setText("jLabel2");
-        getContentPane().add(ed, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
+        ed.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        ed.setText("SALUDO Y COMIDA CORRESPONDIENTE");
 
         lab1.setText("jLabel2");
-        getContentPane().add(lab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, -1));
 
-        lab2.setText("jLabel2");
-        getContentPane().add(lab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, -1, -1));
+        lab2.setText("jLabel3");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/istockphoto-1253999415-1024x1024 (1).jpg"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/png-transparent-cuisine-cartoon-.png"))); // NOI18N
+
+        jTextField1.setText("hoa  akskjjkasbf");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(lbReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(barra, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ed, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lab1))
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lab2)
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(lbReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(barra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(ed)
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lab1)
+                    .addComponent(lab2))
+                .addGap(66, 66, 66)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lbRelojMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbRelojMouseClicked
-        if (r.isAlive()) {
-            JOptionPane.showMessageDialog(this, "El hilo está vivo.");
-        }else{
-            JOptionPane.showMessageDialog(this, "El hilo no está vivo.");
-        }
-    }//GEN-LAST:event_lbRelojMouseClicked
-
-    private void barraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraMouseClicked
-        // TODO add your handling code here:
-        if (p.isAlive()) {
-            JOptionPane.showMessageDialog(this, "El hilo está vivo.");
-        }else{
-            JOptionPane.showMessageDialog(this, "El hilo no está vivo.");
-        }
-    }//GEN-LAST:event_barraMouseClicked
 
     /**
      * @param args the command line arguments
@@ -174,7 +195,9 @@ public class Reloj1 extends javax.swing.JFrame {
     private javax.swing.JProgressBar barra;
     private javax.swing.JLabel ed;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lab1;
     private javax.swing.JLabel lab2;
     private javax.swing.JLabel lbReloj;
