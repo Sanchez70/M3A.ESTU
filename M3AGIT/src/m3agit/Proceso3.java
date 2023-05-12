@@ -16,14 +16,14 @@ import javax.swing.JLabel;
  */
 public class Proceso3 extends Thread {
 String[] nom={"Desayuno","Almuerzo","Cena"};
-private JLabel lab1;
+private JLabel nombre;
 public Proceso3(JLabel nombre){
-    this.lab1 = nombre;
+    this.nombre = nombre;
 }
     public void run(){
         int i=0;
         while(true){
-            this.lab1.setText(nom[i]+" "+i);
+            this.nombre.setText(nom[i]+" "+i);
             //System.out.println(nom[i]+" "+i);
             i++;
             if(i==nom.length){
