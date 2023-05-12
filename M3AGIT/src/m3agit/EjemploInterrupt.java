@@ -15,12 +15,10 @@ import javax.swing.Timer;
  * @author 4lej4
  */
 public class EjemploInterrupt extends javax.swing.JFrame {
-
-    private Timer timer; // Objeto Timer para actualizar el tiempo
-    private long startTime;
-    private long tiempoTranscurrido;
-    private Thread cronometroThread;
-
+private Timer timer; // Objeto Timer para actualizar el tiempo
+private long startTime;
+private long tiempoTranscurrido;
+private Thread cronometroThread; 
     /**
      * Creates new form EjemploInterrupt
      */
@@ -140,48 +138,48 @@ public class EjemploInterrupt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarActionPerformed
-        startTime = System.currentTimeMillis(); // Guarda el tiempo de inicio
-        cronometroThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (!Thread.interrupted() && !Thread.currentThread().isInterrupted()) {
-                    actualizarTiempo();
-                    try {
-                        Thread.sleep(10); // Espera 10 milisegundos antes de actualizar el tiempo
-                    } catch (InterruptedException ex) {
-                        Thread.currentThread().interrupt(); // Restaura la bandera de interrupción
-                    }
+       startTime = System.currentTimeMillis(); // Guarda el tiempo de inicio
+    cronometroThread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            while (!Thread.interrupted() && !Thread.currentThread().isInterrupted()) {
+                actualizarTiempo();
+                try {
+                    Thread.sleep(10); // Espera 10 milisegundos antes de actualizar el tiempo
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt(); // Restaura la bandera de interrupción
                 }
-                System.out.println("Cronómetro detenido");
             }
-        });
-        cronometroThread.start();
+            System.out.println("Cronómetro detenido");
+        }
+    });
+    cronometroThread.start();
     }//GEN-LAST:event_iniciarActionPerformed
 
     private void detenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detenerActionPerformed
         if (cronometroThread != null && cronometroThread.isAlive()) {
-            cronometroThread.interrupt(); // Interrumpe el hilo del cronómetro
-            tiempoTranscurrido = System.currentTimeMillis() - startTime; // Guarda el tiempo transcurrido
-        }
+        cronometroThread.interrupt(); // Interrumpe el hilo del cronómetro
+        tiempoTranscurrido = System.currentTimeMillis() - startTime; // Guarda el tiempo transcurrido
+    }
     }//GEN-LAST:event_detenerActionPerformed
 
     private void reiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarActionPerformed
-        if (cronometroThread != null && cronometroThread.isAlive()) {
-            cronometroThread.interrupt(); // Interrumpe el hilo del cronómetro
-        }
-
-        tiempoTranscurrido = 0; // Reinicia el tiempo transcurrido a cero
-        tiempo.setText("00:00:00:000");
+         if (cronometroThread != null && cronometroThread.isAlive()) {
+        cronometroThread.interrupt(); // Interrumpe el hilo del cronómetro
+    }
+    
+    tiempoTranscurrido = 0; // Reinicia el tiempo transcurrido a cero
+    tiempo.setText("00:00:00:000");
     }//GEN-LAST:event_reiniciarActionPerformed
 
     private void nodetenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodetenerActionPerformed
-        if (cronometroThread != null && cronometroThread.isAlive()) {
-            cronometroThread.interrupt(); // Interrumpe el hilo del cronómetro
-            reiniciarCronometro();
-        } else {
-            reiniciarCronometro();
-            startTime = System.currentTimeMillis(); // Guarda el nuevo tiempo de inicio
-        }
+      if (cronometroThread != null && cronometroThread.isAlive()) {
+        cronometroThread.interrupt(); // Interrumpe el hilo del cronómetro
+        reiniciarCronometro();
+    } else {
+        reiniciarCronometro();
+        startTime = System.currentTimeMillis(); // Guarda el nuevo tiempo de inicio
+    }
     }//GEN-LAST:event_nodetenerActionPerformed
 
     private void tiempoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoMouseClicked
@@ -225,47 +223,44 @@ public class EjemploInterrupt extends javax.swing.JFrame {
             }
         });
     }
-
     private void actualizarTiempo() {
-        long elapsedTime = System.currentTimeMillis() - startTime;
-        long milisegundos = elapsedTime % 1000;
-        long segundos = (elapsedTime / 1000) % 60;
-        long minutos = (elapsedTime / (1000 * 60)) % 60;
-        long horas = (elapsedTime / (1000 * 60 * 60)) % 24;
+    long elapsedTime = System.currentTimeMillis() - startTime;
+    long milisegundos = elapsedTime % 1000;
+    long segundos = (elapsedTime / 1000) % 60;
+    long minutos = (elapsedTime / (1000 * 60)) % 60;
+    long horas = (elapsedTime / (1000 * 60 * 60)) % 24;
 
-        // Formatea el tiempo en HH:mm:ss:SSS
-        String tiempoFormateado = String.format("%02d:%02d:%02d:%03d", horas, minutos, segundos, milisegundos);
+    // Formatea el tiempo en HH:mm:ss:SSS
+    String tiempoFormateado = String.format("%02d:%02d:%02d:%03d", horas, minutos, segundos, milisegundos);
 
-        tiempo.setText(tiempoFormateado); // Actualiza el JLabel con el tiempo transcurrido
-    }
+    tiempo.setText(tiempoFormateado); // Actualiza el JLabel con el tiempo transcurrido
+}
+ private void reiniciarCronometro() {
+    cronometroThread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            while (!Thread.interrupted() && !Thread.currentThread().isInterrupted()) {
+                long elapsedTime = System.currentTimeMillis() - startTime + tiempoTranscurrido;
+                long milisegundos = elapsedTime % 1000;
+                long segundos = (elapsedTime / 1000) % 60;
+                long minutos = (elapsedTime / (1000 * 60)) % 60;
+                long horas = (elapsedTime / (1000 * 60 * 60)) % 24;
 
-    private void reiniciarCronometro() {
-        cronometroThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (!Thread.interrupted() && !Thread.currentThread().isInterrupted()) {
-                    long elapsedTime = System.currentTimeMillis() - startTime + tiempoTranscurrido;
-                    long milisegundos = elapsedTime % 1000;
-                    long segundos = (elapsedTime / 1000) % 60;
-                    long minutos = (elapsedTime / (1000 * 60)) % 60;
-                    long horas = (elapsedTime / (1000 * 60 * 60)) % 24;
+                // Formatea el tiempo en HH:mm:ss:SSS
+                String tiempoFormateado = String.format("%02d:%02d:%02d:%03d", horas, minutos, segundos, milisegundos);
 
-                    // Formatea el tiempo en HH:mm:ss:SSS
-                    String tiempoFormateado = String.format("%02d:%02d:%02d:%03d", horas, minutos, segundos, milisegundos);
+                tiempo.setText(tiempoFormateado); // Actualiza el JLabel con el tiempo transcurrido
 
-                    tiempo.setText(tiempoFormateado); // Actualiza el JLabel con el tiempo transcurrido
-
-                    try {
-                        Thread.sleep(10); // Espera 10 milisegundos antes de actualizar el tiempo
-                    } catch (InterruptedException ex) {
-                        Thread.currentThread().interrupt(); // Restaura la bandera de interrupción
-                    }
+                try {
+                    Thread.sleep(10); // Espera 10 milisegundos antes de actualizar el tiempo
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt(); // Restaura la bandera de interrupción
                 }
-                System.out.println("Cronómetro detenido");
             }
-        });
-        cronometroThread.start();
-    }
+            System.out.println("Cronómetro detenido");
+        }
+    });
+    cronometroThread.start();}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton detener;
     private javax.swing.JButton iniciar;
