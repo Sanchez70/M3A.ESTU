@@ -48,8 +48,14 @@ private Thread cronometroThread;
 
         tiempo.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         tiempo.setForeground(new java.awt.Color(255, 204, 204));
+        tiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tiempo.setToolTipText("");
         tiempo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tiempo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tiempoMouseClicked(evt);
+            }
+        });
 
         iniciar.setBackground(new java.awt.Color(255, 204, 204));
         iniciar.setForeground(new java.awt.Color(43, 43, 43));
@@ -92,33 +98,40 @@ private Thread cronometroThread;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nodetener)
+                        .addContainerGap(86, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(detener, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(reiniciar)))))
-                .addGap(46, 46, 46))
+                                .addComponent(iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(122, 122, 122))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(nodetener)
+                                .addGap(47, 47, 47)
+                                .addComponent(reiniciar))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(detener, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(73, 73, 73))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addComponent(tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iniciar)
-                    .addComponent(detener)
+                    .addComponent(detener))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nodetener)
                     .addComponent(reiniciar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nodetener)
-                .addGap(12, 12, 12))
+                .addContainerGap())
         );
 
         pack();
@@ -168,6 +181,13 @@ private Thread cronometroThread;
         startTime = System.currentTimeMillis(); // Guarda el nuevo tiempo de inicio
     }
     }//GEN-LAST:event_nodetenerActionPerformed
+
+    private void tiempoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiempoMouseClicked
+        // TODO add your handling code here:
+        if (rootPaneCheckingEnabled) {
+            
+        }
+    }//GEN-LAST:event_tiempoMouseClicked
 
     /**
      * @param args the command line arguments

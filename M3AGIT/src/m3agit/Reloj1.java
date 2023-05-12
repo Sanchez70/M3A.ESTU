@@ -6,20 +6,22 @@
 package m3agit;
 
 import java.time.LocalDate;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Joseline
  */
 public class Reloj1 extends javax.swing.JFrame {
-
+    Proceso1 r;
+    Progress p;
     /**
      * Creates new form Reloj1
      */
     public Reloj1() {
         initComponents();
-        Proceso1 r = new Proceso1(this.lbReloj);
-        Progress p = new Progress(this.barra);
+        r = new Proceso1(this.lbReloj);
+        p = new Progress(this.barra);
         p.start();
         try {
             this.setVisible(true);
@@ -76,6 +78,12 @@ public class Reloj1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        barra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                barraMouseClicked(evt);
+            }
+        });
         getContentPane().add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 210, -1));
 
         lbfecha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -86,6 +94,11 @@ public class Reloj1 extends javax.swing.JFrame {
         lbReloj.setForeground(new java.awt.Color(0, 153, 0));
         lbReloj.setText("jLabel1");
         lbReloj.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lbReloj.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbRelojMouseClicked(evt);
+            }
+        });
         getContentPane().add(lbReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 200, 115));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reloj.JPG"))); // NOI18N
@@ -103,6 +116,23 @@ public class Reloj1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lbRelojMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbRelojMouseClicked
+        if (r.isAlive()) {
+            JOptionPane.showMessageDialog(this, "El hilo está vivo.");
+        }else{
+            JOptionPane.showMessageDialog(this, "El hilo no está vivo.");
+        }
+    }//GEN-LAST:event_lbRelojMouseClicked
+
+    private void barraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraMouseClicked
+        // TODO add your handling code here:
+        if (p.isAlive()) {
+            JOptionPane.showMessageDialog(this, "El hilo está vivo.");
+        }else{
+            JOptionPane.showMessageDialog(this, "El hilo no está vivo.");
+        }
+    }//GEN-LAST:event_barraMouseClicked
 
     /**
      * @param args the command line arguments
