@@ -24,12 +24,11 @@ public Proceso2(JLabel nombre){
     public void run(){
         int i=0;
         while(true){
-            this.nombre.setText(nom[i]);
+            this.nombre.setText(nom[i]+" "+i);
             //System.out.println(nom[i]);
             i++;
             if(i==nom.length){
-                i=0;        
-                Thread.yield();
+                i=0;         
             }
             try {
                 sleep(1000);
