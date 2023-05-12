@@ -81,8 +81,10 @@ public class Reloj1 extends javax.swing.JFrame {
         ed.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         ed.setText("SALUDO Y COMIDA CORRESPONDIENTE");
 
+        lab1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lab1.setText("jLabel2");
 
+        lab2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lab2.setText("jLabel2");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/png-transparent-cuisine-cartoon-.png"))); // NOI18N
