@@ -19,6 +19,17 @@ public class Reloj1 extends javax.swing.JFrame {
     public Reloj1() {
         initComponents();
         Proceso1 r = new Proceso1(this.lbReloj);
+        Progress p = new Progress(this.barra);
+        p.start();
+        try {
+            this.setVisible(true);
+            barra.setVisible(true);
+            p.join();
+            
+        
+        } catch (InterruptedException ex) {
+            System.out.println("ERROR");
+        }
         r.start();
         LocalDate fech = LocalDate.now();
         lbfecha.setText(String.valueOf(fech));
@@ -42,6 +53,7 @@ public class Reloj1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel4 = new javax.swing.JPanel();
+        barra = new javax.swing.JProgressBar();
         lbfecha = new javax.swing.JLabel();
         lbReloj = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -64,6 +76,7 @@ public class Reloj1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 210, -1));
 
         lbfecha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbfecha.setForeground(new java.awt.Color(0, 153, 0));
@@ -128,6 +141,7 @@ public class Reloj1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar barra;
     private javax.swing.JLabel ed;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel4;
