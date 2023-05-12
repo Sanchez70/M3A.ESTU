@@ -48,6 +48,9 @@ public class Reloj1 extends javax.swing.JFrame {
         ed = new javax.swing.JLabel();
         lab1 = new javax.swing.JLabel();
         lab2 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -63,30 +66,84 @@ public class Reloj1 extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbfecha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbfecha.setForeground(new java.awt.Color(0, 153, 0));
-        getContentPane().add(lbfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 140, 20));
 
         lbReloj.setFont(new java.awt.Font("Agency FB", 1, 50)); // NOI18N
         lbReloj.setForeground(new java.awt.Color(0, 153, 0));
         lbReloj.setText("jLabel1");
         lbReloj.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(lbReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 200, 115));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reloj.JPG"))); // NOI18N
         jLabel1.setText("aaa");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 450, 360));
 
-        ed.setText("jLabel2");
-        getContentPane().add(ed, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
+        ed.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        ed.setText("SALUDO Y COMIDA CORRESPONDIENTE");
 
         lab1.setText("jLabel2");
-        getContentPane().add(lab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, -1));
 
         lab2.setText("jLabel2");
-        getContentPane().add(lab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/png-transparent-cuisine-cartoon-.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/istockphoto-1253999415-1024x1024 (1).jpg"))); // NOI18N
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(lbReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ed, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lab1))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(lab2)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator1)
+                        .addContainerGap())))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lbfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(lbReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(ed)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lab1)
+                    .addComponent(lab2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -130,7 +187,10 @@ public class Reloj1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ed;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lab1;
     private javax.swing.JLabel lab2;
     private javax.swing.JLabel lbReloj;

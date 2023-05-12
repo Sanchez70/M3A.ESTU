@@ -23,13 +23,13 @@ public Proceso3(JLabel nombre){
     public void run(){
         int i=0;
         while(true){
-            this.nombre.setText(nom[i]+" "+i);
+            this.nombre.setText(nom[i]);
             //System.out.println(nom[i]+" "+i);
             i++;
             if(i==nom.length){
                 i=0;
                 Thread.yield();
-                System.out.println("entre al yield");
+                //System.out.println("entre al yield");
             }
             try {
                 sleep(1000);
