@@ -22,16 +22,8 @@ public class Reloj1 extends javax.swing.JFrame {
         r.start();
         LocalDate fech = LocalDate.now();
         lbfecha.setText(String.valueOf(fech));
-        
-        ///metodoss yield//
-        Proceso2 hilo1 = new Proceso2(lab1);
-        Proceso3 hilo2 = new Proceso3(lab2);
-        
-        hilo1.start();
-        hilo2.start();
-        
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,9 +37,6 @@ public class Reloj1 extends javax.swing.JFrame {
         lbfecha = new javax.swing.JLabel();
         lbReloj = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        ed = new javax.swing.JLabel();
-        lab1 = new javax.swing.JLabel();
-        lab2 = new javax.swing.JLabel();
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -76,17 +65,7 @@ public class Reloj1 extends javax.swing.JFrame {
         getContentPane().add(lbReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 200, 115));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reloj.JPG"))); // NOI18N
-        jLabel1.setText("aaa");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 450, 360));
-
-        ed.setText("jLabel2");
-        getContentPane().add(ed, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
-
-        lab1.setText("jLabel2");
-        getContentPane().add(lab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, -1));
-
-        lab2.setText("jLabel2");
-        getContentPane().add(lab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -128,11 +107,8 @@ public class Reloj1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ed;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JLabel lab1;
-    private javax.swing.JLabel lab2;
     private javax.swing.JLabel lbReloj;
     private javax.swing.JLabel lbfecha;
     // End of variables declaration//GEN-END:variables
