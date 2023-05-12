@@ -138,16 +138,16 @@ private Thread cronometroThread;
     }// </editor-fold>//GEN-END:initComponents
 
     private void iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarActionPerformed
-       startTime = System.currentTimeMillis(); // Guarda el tiempo de inicio
+       startTime = System.currentTimeMillis(); // TIEMPO DE INICIO
     cronometroThread = new Thread(new Runnable() {
         @Override
         public void run() {
             while (!Thread.interrupted() && !Thread.currentThread().isInterrupted()) {
                 actualizarTiempo();
                 try {
-                    Thread.sleep(10); // Espera 10 milisegundos antes de actualizar el tiempo
+                    Thread.sleep(10); // DESPUES DE 10 SEGUNDOS SE REANUDA
                 } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt(); // Restaura la bandera de interrupción
+                    Thread.currentThread().interrupt(); // DESPUES DE LA INTERRUPCION SE RESTAURA LA BANDERA
                 }
             }
             System.out.println("Cronómetro detenido");
@@ -158,27 +158,28 @@ private Thread cronometroThread;
 
     private void detenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detenerActionPerformed
         if (cronometroThread != null && cronometroThread.isAlive()) {
-        cronometroThread.interrupt(); // Interrumpe el hilo del cronómetro
-        tiempoTranscurrido = System.currentTimeMillis() - startTime; // Guarda el tiempo transcurrido
+        cronometroThread.interrupt(); // EL HILO ES INTERRUMPIDO
+        tiempoTranscurrido = System.currentTimeMillis() - startTime; // GUARDA EL TIEMPO TRANSCURRIDO PARA LUEGO
+        //PODER REANUDARLO DESDE DONDE SE DETUVO EL CRONOMETRO
     }
     }//GEN-LAST:event_detenerActionPerformed
 
     private void reiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarActionPerformed
          if (cronometroThread != null && cronometroThread.isAlive()) {
-        cronometroThread.interrupt(); // Interrumpe el hilo del cronómetro
+        cronometroThread.interrupt(); // EL HILO ES INTERRUMPIDO
     }
     
-    tiempoTranscurrido = 0; // Reinicia el tiempo transcurrido a cero
+    tiempoTranscurrido = 0; // EL TIEMPO VUELVE A CERO
     tiempo.setText("00:00:00:000");
     }//GEN-LAST:event_reiniciarActionPerformed
 
     private void nodetenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nodetenerActionPerformed
       if (cronometroThread != null && cronometroThread.isAlive()) {
-        cronometroThread.interrupt(); // Interrumpe el hilo del cronómetro
+        cronometroThread.interrupt();
         reiniciarCronometro();
     } else {
         reiniciarCronometro();
-        startTime = System.currentTimeMillis(); // Guarda el nuevo tiempo de inicio
+        startTime = System.currentTimeMillis(); // GUARDA EL TIEMPO DESDE DONDE SE INICIO DE NUEVO EL CRONOMETRO
     }
     }//GEN-LAST:event_nodetenerActionPerformed
 
@@ -229,11 +230,9 @@ private Thread cronometroThread;
     long segundos = (elapsedTime / 1000) % 60;
     long minutos = (elapsedTime / (1000 * 60)) % 60;
     long horas = (elapsedTime / (1000 * 60 * 60)) % 24;
-
-    // Formatea el tiempo en HH:mm:ss:SSS
     String tiempoFormateado = String.format("%02d:%02d:%02d:%03d", horas, minutos, segundos, milisegundos);
 
-    tiempo.setText(tiempoFormateado); // Actualiza el JLabel con el tiempo transcurrido
+    tiempo.setText(tiempoFormateado); // SE MUESTRA EN EL LABEL EL TIEMPO QUE VA TRANSCURRIENDO
 }
  private void reiniciarCronometro() {
     cronometroThread = new Thread(new Runnable() {
@@ -249,12 +248,12 @@ private Thread cronometroThread;
                 // Formatea el tiempo en HH:mm:ss:SSS
                 String tiempoFormateado = String.format("%02d:%02d:%02d:%03d", horas, minutos, segundos, milisegundos);
 
-                tiempo.setText(tiempoFormateado); // Actualiza el JLabel con el tiempo transcurrido
+                tiempo.setText(tiempoFormateado); // SE MUESTRA EN EL LABEL EL TIEMPO QUE VA TRANSCURRIENDO
 
                 try {
-                    Thread.sleep(10); // Espera 10 milisegundos antes de actualizar el tiempo
+                    Thread.sleep(10); 
                 } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt(); // Restaura la bandera de interrupción
+                    Thread.currentThread().interrupt(); // LA BANDERA ES RESTAURADA
                 }
             }
             System.out.println("Cronómetro detenido");
